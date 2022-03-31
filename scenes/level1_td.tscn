@@ -1,0 +1,137 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/td_controller.gd" type="Script" id=1]
+[ext_resource path="res://resources/base_tile.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/heart_controller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audio/good.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/bad.ogg" type="AudioStream" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 351, 299, 0, 0, 0, 0, 349, 108, 0, 0, 0, 0, 355, -67, 0, 0, 0, 0, 347, -257 )
+}
+
+[sub_resource type="Curve2D" id=2]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -379, -266, 0, 0, 0, 0, -537, -122, 0, 0, 0, 0, -583, 4, 0, 0, 0, 0, -611, 105, 0, 0, 0, 0, -611, 203, 0, 0, 0, 0, -584, 298, 0, 0, 0, 0, -470, 300, 0, 0, 0, 0, -381, 301, 0, 0, 0, 0, -367, 321 )
+}
+
+[sub_resource type="Curve2D" id=3]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -319, -264, 0, 0, 0, 0, -215, -126, 0, 0, 0, 0, -118, 29, 0, 0, 0, 0, -77, 115, 0, 0, 0, 0, -79, 220, 0, 0, 0, 0, -110, 283, 0, 0, 0, 0, -199, 312, 0, 0, 0, 0, -300, 299, 0, 0, 0, 0, -331, 319 )
+}
+
+[node name="towerdefence" type="Node2D"]
+
+script = ExtResource( 1 )
+player_unit_spawn = NodePath("player_spawn")
+player_unit_target = NodePath("opponentsheart")
+enemy_unit_spawn = NodePath("enemy_spawn")
+enemy_unit_target = NodePath("playerheart")
+path_unit_player = NodePath("path_player_units")
+path_unit_target_1 = NodePath("path_enemy_units_1")
+path_unit_target_2 = NodePath("path_enemy_units_2")
+
+[node name="perpetual_enemy_timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="queue_process_timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = false
+autostart = true
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -262155, 4, 0, -262154, 6, 0, -262153, 6, 0, -262152, 6, 0, -262151, 6, 0, -262150, 7, 0, -262149, 6, 0, -262148, 6, 0, -262147, 6, 0, -262146, 6, 0, -262145, 5, 0, -327680, 4, 0, -327679, 6, 0, -327678, 6, 0, -327677, 6, 0, -327676, 6, 0, -327675, 0, 0, -327674, 6, 0, -327673, 6, 0, -327672, 6, 0, -327671, 6, 0, -327670, 5, 0, -196619, 7, 0, -196618, 0, 0, -196617, 0, 0, -196616, 0, 0, -196615, 0, 0, -196614, 0, 0, -196613, 0, 0, -196612, 0, 0, -196611, 0, 0, -196610, 0, 0, -196609, 7, 0, -262144, 7, 0, -262143, 0, 0, -262142, 0, 0, -262141, 0, 0, -262140, 0, 0, -262139, 0, 0, -262138, 0, 0, -262137, 0, 0, -262136, 0, 0, -262135, 0, 0, -262134, 7, 0, -131083, 7, 0, -131082, 0, 0, -131081, 0, 0, -131080, -1610612736, 0, -131079, 0, 0, -131078, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 7, 0, -196608, 7, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 7, 0, -65547, 7, 0, -65546, 0, 0, -65545, 0, 0, -65544, 0, 0, -65543, 0, 0, -65542, 0, 0, -65541, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 7, 0, -131072, 7, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 7, 0, -11, 7, 0, -10, 0, 0, -9, 0, 0, -8, 0, 0, -7, -1073741824, 0, -6, -1073741824, 0, -5, -1073741824, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 7, 0, -65536, 7, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 7, 0, 65525, 7, 0, 65526, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 7, 0, 0, 7, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 7, 0, 131061, 7, 0, 131062, 0, 0, 131063, 4, 0, 131064, 6, 0, 131065, 6, 0, 131066, 6, 0, 131067, 6, 0, 131068, 6, 0, 131069, 5, 0, 131070, 0, 0, 131071, 7, 0, 65536, 7, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 7, 0, 196597, 7, 0, 196598, 0, 0, 196599, 7, 0, 196600, 0, 0, 196601, 0, 0, 196602, 0, 0, 196603, 0, 0, 196604, 0, 0, 196605, 7, 0, 196606, 0, 0, 196607, 7, 0, 131072, 7, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 7, 0, 262133, 7, 0, 262134, 0, 0, 262135, 1, 0, 262136, 6, 0, 262137, 6, 0, 262138, 6, 0, 262139, 6, 0, 262140, 6, 0, 262141, 3, 0, 262142, 0, 0, 262143, 7, 0, 196608, 7, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 7, 0, 327669, 7, 0, 327670, 0, 0, 327671, 0, 0, 327672, 0, 0, 327673, 0, 0, 327674, 0, 0, 327675, 0, 0, 327676, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 7, 0, 262144, 7, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 7, 0, 393205, 1, 0, 393206, 6, 0, 393207, 6, 0, 393208, 6, 0, 393209, 6, 0, 393210, 0, 0, 393211, 6, 0, 393212, 6, 0, 393213, 6, 0, 393214, 6, 0, 393215, 3, 0, 327680, 1, 0, 327681, 6, 0, 327682, 6, 0, 327683, 6, 0, 327684, 6, 0, 327685, 7, 0, 327686, 6, 0, 327687, 6, 0, 327688, 6, 0, 327689, 6, 0, 327690, 3, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="playerheart" parent="." index="3" instance=ExtResource( 3 )]
+
+_sections_unfolded = [ "Region", "Transform" ]
+sound_to_play_path = NodePath("../bad")
+
+[node name="opponentsheart" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 352, -290 )
+sound_to_play_path = NodePath("../good")
+
+[node name="enemy_spawn" type="Node2D" parent="." index="5"]
+
+position = Vector2( -352, -264 )
+
+[node name="player_spawn" type="Node2D" parent="." index="6"]
+
+position = Vector2( 352, 323 )
+
+[node name="path_player_units" type="Path2D" parent="." index="7"]
+
+curve = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="path_enemy_units_1" type="Path2D" parent="." index="8"]
+
+curve = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="path_enemy_units_2" type="Path2D" parent="." index="9"]
+
+curve = SubResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="good" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 4 )
+volume_db = -25.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="bad" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 5 )
+volume_db = -25.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="timeout" from="perpetual_enemy_timer" to="." method="_on_perpetual_enemy_timer_timeout"]
+
+[connection signal="timeout" from="queue_process_timer" to="." method="_on_queue_process_timer_timeout"]
+
+[connection signal="has_died" from="playerheart" to="." method="_on_playerheart_has_died"]
+
+[connection signal="score_changed" from="playerheart" to="." method="_on_playerheart_score_changed"]
+
+[connection signal="has_died" from="opponentsheart" to="." method="_on_opponentsheart_has_died"]
+
+[connection signal="score_changed" from="opponentsheart" to="." method="_on_opponentsheart_score_changed"]
+
+

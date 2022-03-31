@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/main_scene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/level1_td.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/scoreboard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/dialogue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/music.ogg" type="AudioStream" id=5]
+
+[node name="scene" type="Node"]
+
+script = ExtResource( 1 )
+novel_controller = null
+towerdefence_controller = NodePath("towerdefence")
+score_controller = null
+
+[node name="towerdefence" parent="." index="0" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+position = Vector2( 352, 408 )
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="scoreboard" parent="." index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 736, 441 )
+
+[node name="dialogue" parent="." index="2" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
+
+anchor_mode = 0
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="music" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 5 )
+volume_db = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[connection signal="enemy_died" from="towerdefence" to="." method="_on_towerdefence_enemy_died"]
+
+[connection signal="enemy_score_changed" from="towerdefence" to="scoreboard" method="_on_towerdefence_enemy_score_changed"]
+
+[connection signal="player_died" from="towerdefence" to="." method="_on_towerdefence_player_died"]
+
+[connection signal="player_score_changed" from="towerdefence" to="scoreboard" method="_on_towerdefence_player_score_changed"]
+
+[connection signal="player_choice_executed" from="dialogue" to="towerdefence" method="_on_dialogue_player_choice_executed"]
+
+

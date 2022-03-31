@@ -1,0 +1,43 @@
+name:=Tsundere-chan
+description:=Tsundere-chan is tsundere, soft on the inside and rough on the outside. Keep this in mind. You find her in the library while she was reading some books
+
+$name is reading some books. She probably doesn't want to be disturbed...
+	>Ignore her
+		<$name notice you: "Yo $player, you could at least say hi, geez... You're always the same."	#normal
+	>Casually greet her, without giving too much attention
+		<Hi $player!	#good
+	>Greet her directly and try to start a conversation	
+		<$player, can't you see that i'm reading? Guess i'll stop then. Better be worth it.	#bad
+
+You have to pick an argoument to talk about
+	>The book that she's reading
+		<Oh this? I'm studying for my next university exam.	#normal
+	>Nokemon, the new game that's really popular
+		<"Wait you play Nokemon too? I... Sometimes i play too, that's it! Don't look at me like that, i don't play too much"	#good
+
+You two started talking. After a while you notice something strange. There are two black box below you with two hearts.
+	>Ask her about the two boxes
+		<I really don't know what they are	#normal
+	>Tell her that her boxes are the symbol of your love
+		<Good one!	#bad
+	>Tell her the everything in the world is a box
+		<Mhhhh i love boxes	#good
+
+There's a strange 8bit sound coming out of nowere
+	>Ask her if she likes 8bit
+		<I do i do!	#good
+	>Start moving the eyes at rhythm
+		<That's creepy	#bad
+	>Keep eye contact like a mad man
+		<What are you staring at?! Keep going!	#bad
+	>Tell her that life is a fragile thing and only the 8bitter survives
+		<So, you'll survive for sure then?	#good
+
+Two bandits assoult you. You destroy them with a roundhouse kick, what's your next line?
+	>Hasta la vista, amigo
+		<What is this?	#bad
+	>That actually happened in your dream. You're almost dead and the girl is beside you
+		<Are you ok?	#good
+	>Continue the eye contact tecniques
+		<This time it worked. She seems to like your eyes after all	#good
+

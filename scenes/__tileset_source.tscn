@@ -1,0 +1,121 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://textures/resources.png" type="Texture" id=1]
+
+[sub_resource type="NavigationPolygon" id=1]
+
+vertices = PoolVector2Array( 30, -30, 30, 30, -30, 30, -30, -30 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 0, 3 ) ]
+outlines = [ PoolVector2Array( -30, -30, 30, -30, -30, -30, -30, 30, 30, 30, 30, -30 ) ]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="walkable" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="walkable" index="0"]
+
+navpoly = SubResource( 1 )
+enabled = true
+
+[node name="ttop" type="Sprite" parent="." index="1"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="tleft" type="Sprite" parent="." index="2"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 0, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="tbottom" type="Sprite" parent="." index="3"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 320, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="tright" type="Sprite" parent="." index="4"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 384, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="bottomleft" type="Sprite" parent="." index="5"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="cross" type="Sprite" parent="." index="6"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="bottomright" type="Sprite" parent="." index="7"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="topleft" type="Sprite" parent="." index="8"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="topright" type="Sprite" parent="." index="9"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 192, 0, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="horizontal" type="Sprite" parent="." index="10"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 256, 64, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="vertical" type="Sprite" parent="." index="11"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 128, 128, 64, 64 )
+_sections_unfolded = [ "Material", "Region" ]
+
+[node name="knife" type="Sprite" parent="." index="12"]
+
+visible = false
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 68, 152, 48, 12 )
+_sections_unfolded = [ "Material", "Region" ]
+
+

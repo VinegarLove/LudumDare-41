@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bad.ogg-aaa887f94d3910663db7f75337747b4f.oggstr"
+
+[deps]
+
+source_file="res://audio/bad.ogg"
+source_md5="66dcbbeeff8a5eea7cc7e718ad3631c9"
+
+dest_files=[ "res://.import/bad.ogg-aaa887f94d3910663db7f75337747b4f.oggstr" ]
+dest_md5="4d38fec06c8ad2c053f5665fc9ecc762"
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,139 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/scoreboard.gd" type="Script" id=1]
+[ext_resource path="res://resources/blackbox.tres" type="Texture" id=2]
+[ext_resource path="res://textures/resources.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+
+flags = 0
+atlas = ExtResource( 3 )
+region = Rect2( 11, 492, 9, 9 )
+margin = Rect2( 0, 0, 0, 0 )
+filter_clip = false
+
+[node name="scoreboard" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform" ]
+player_score = NodePath("player_data/health")
+opponents_score = NodePath("opponents_data/health")
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 16, -17 )
+scale = Vector2( 1.5, 5.5 )
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 64, 64 )
+region_filter_clip = true
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -28.0
+margin_top = -180.0
+margin_right = 32.0
+margin_bottom = -166.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Stats"
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="player_data" type="Node2D" parent="." index="2"]
+
+position = Vector2( -11, -147 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="heart_icon" type="Sprite" parent="player_data" index="0"]
+
+scale = Vector2( 2.58025, 2.58025 )
+texture = SubResource( 1 )
+region_rect = Rect2( 0, 512, 64, 0 )
+region_filter_clip = true
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="health" type="Label" parent="player_data" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 19.0
+margin_top = -8.0
+margin_right = 64.0
+margin_bottom = 6.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "100"
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="opponents_data" type="Node2D" parent="." index="3"]
+
+position = Vector2( -11, -119 )
+
+[node name="heart_icon" type="Sprite" parent="opponents_data" index="0"]
+
+scale = Vector2( 2.58025, 2.58025 )
+texture = SubResource( 1 )
+region_rect = Rect2( 0, 512, 64, 0 )
+region_filter_clip = true
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="health" type="Label" parent="opponents_data" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 19.0
+margin_top = -8.0
+margin_right = 64.0
+margin_bottom = 6.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "100"
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Theme" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+
