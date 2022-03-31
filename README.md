@@ -1,5 +1,5 @@
 # Project made for the Ludum Dare 41
-# This was made in 48 hours
+## This was made in 48 hours
 
 WARNING: It actually miss a lot of stuff i wanted to do. This is pretty much a barebone game. This is my first LD and i defenitively scoped out (i did a parser for the dialogues for no reason) and had a long lasting problem that took me almost 4 hours away.
 
